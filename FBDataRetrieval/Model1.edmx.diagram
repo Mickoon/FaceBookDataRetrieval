@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc08578f7711453494047128b5fccd0f" Name="Diagram1" ZoomLevel="80" >
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBPost" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBPostLike" Width="1.5" PointX="4.875" PointY="1.125" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBPostComment" Width="1.5" PointX="2.625" PointY="1.375" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBUser" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBDirectMessage" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBDirectMessage_PosNeg" Width="1.5" PointX="8.5599593913927485" PointY="26.434218016655286" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBPostComments_PosNeg" Width="1.5" PointX="6.4585629284654562" PointY="10.006026958118206" />
+        <EntityTypeShape EntityType="FaceBookDataCollectionModel.FBPosts_PosNeg" Width="1.5" PointX="1.5654435258197803" PointY="15.92431271817736" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

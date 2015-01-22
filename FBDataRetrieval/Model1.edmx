@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FaceBookDataCollectionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FaceBookDataCollectionModelStoreContainer">
+          <EntitySet Name="FBDirectMessage" EntityType="FaceBookDataCollectionModel.Store.FBDirectMessage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBDirectMessage_PosNeg" EntityType="FaceBookDataCollectionModel.Store.FBDirectMessage_PosNeg" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBPostComments" EntityType="FaceBookDataCollectionModel.Store.FBPostComments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBPostComments_PosNeg" EntityType="FaceBookDataCollectionModel.Store.FBPostComments_PosNeg" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBPostLikes" EntityType="FaceBookDataCollectionModel.Store.FBPostLikes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBPosts" EntityType="FaceBookDataCollectionModel.Store.FBPosts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBPosts_PosNeg" EntityType="FaceBookDataCollectionModel.Store.FBPosts_PosNeg" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FBUsers" EntityType="FaceBookDataCollectionModel.Store.FBUsers" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="FBDirectMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Sender_Id" Type="nvarchar(max)" />
+          <Property Name="Sender_Name" Type="nvarchar(max)" />
+          <Property Name="Recipient1_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient1_Name" Type="nvarchar(max)" />
+          <Property Name="Recipient2_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient2_Name" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Application" Type="nvarchar(max)" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Updated_Time" Type="datetime" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Comments" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FBDirectMessage_PosNeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Sender_Id" Type="nvarchar(max)" />
+          <Property Name="Sender_Name" Type="nvarchar(max)" />
+          <Property Name="Recipient1_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient1_Name" Type="nvarchar(max)" />
+          <Property Name="Recipient2_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient2_Name" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Application" Type="nvarchar(max)" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Updated_Time" Type="datetime" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Comments" Type="bigint" />
+          <Property Name="NegWords" Type="bigint" />
+          <Property Name="PosWords" Type="bigint" />
+          <Property Name="Length_of_Message" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FBPostComments">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="bigint" Nullable="false" />
+          <Property Name="Writer_ID" Type="nvarchar(max)" />
+          <Property Name="Writer_Name" Type="nvarchar(max)" />
+          <Property Name="Post_Id" Type="bigint" />
+          <Property Name="Recipient_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient_Name" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Message_Tags_Count" Type="bigint" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Like_Count" Type="bigint" />
+          <Property Name="User_Likes" Type="bit" />
+        </EntityType>
+        <EntityType Name="FBPostComments_PosNeg">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="bigint" Nullable="false" />
+          <Property Name="Writer_ID" Type="nvarchar(max)" />
+          <Property Name="Writer_Name" Type="nvarchar(max)" />
+          <Property Name="Post_Id" Type="bigint" />
+          <Property Name="Recipient_Id" Type="nvarchar(max)" />
+          <Property Name="Recipient_Name" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Message_Tags_Count" Type="bigint" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Like_Count" Type="bigint" />
+          <Property Name="User_Likes" Type="bit" />
+          <Property Name="NegWords" Type="bigint" />
+          <Property Name="PosWords" Type="bigint" />
+          <Property Name="Length_of_Message" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FBPostLikes">
+          <Key>
+            <PropertyRef Name="Int" />
+          </Key>
+          <Property Name="Int" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From_User_ID" Type="nvarchar(max)" />
+          <Property Name="From_User_Name" Type="nvarchar(max)" />
+          <Property Name="Post_Id" Type="bigint" />
+          <Property Name="Id" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="User_Updated_Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FBPosts">
+          <Key>
+            <PropertyRef Name="Post_Id" />
+          </Key>
+          <Property Name="Post_Id" Type="bigint" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar(max)" />
+          <Property Name="Category" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Updated_Time" Type="datetime" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Status_Type" Type="nvarchar(max)" />
+          <Property Name="Shares" Type="bigint" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Comments" Type="bigint" />
+          <Property Name="PostByOther_Id" Type="nvarchar(max)" />
+          <Property Name="PostByOther_Name" Type="nvarchar(max)" />
+          <Property Name="Caption" Type="nvarchar(max)" />
+          <Property Name="Caption_Title" Type="nvarchar(max)" />
+          <Property Name="Cap_Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FBPosts_PosNeg">
+          <Key>
+            <PropertyRef Name="Post_Id" />
+          </Key>
+          <Property Name="Post_Id" Type="bigint" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar(max)" />
+          <Property Name="Category" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Created_Time" Type="datetime" />
+          <Property Name="Updated_Time" Type="datetime" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Status_Type" Type="nvarchar(max)" />
+          <Property Name="Shares" Type="bigint" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Comments" Type="bigint" />
+          <Property Name="PostByOther_Id" Type="nvarchar(max)" />
+          <Property Name="PostByOther_Name" Type="nvarchar(max)" />
+          <Property Name="Caption" Type="nvarchar(max)" />
+          <Property Name="Caption_Title" Type="nvarchar(max)" />
+          <Property Name="Cap_Description" Type="nvarchar(max)" />
+          <Property Name="NegWords" Type="bigint" />
+          <Property Name="PosWords" Type="bigint" />
+          <Property Name="Length_of_Message" Type="bigint" />
+        </EntityType>
+        <EntityType Name="FBUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="Can_Post" Type="bit" />
+          <Property Name="Category" Type="nvarchar(max)" />
+          <Property Name="Check_Ins" Type="bigint" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Founded" Type="nvarchar(max)" />
+          <Property Name="Has_Added_App" Type="bit" />
+          <Property Name="Is_Community_Page" Type="bit" />
+          <Property Name="Is_Published" Type="bit" />
+          <Property Name="Likes" Type="bigint" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Talking_About_Count" Type="bigint" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="Were_Here_Count" Type="bigint" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FaceBookDataCollectionModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FaceBookDataCollectionEntities" p1:LazyLoadingEnabled="true" >
+          <EntitySet Name="FBPosts" EntityType="FaceBookDataCollectionModel.FBPost" />
+          <EntitySet Name="FBPostLikes" EntityType="FaceBookDataCollectionModel.FBPostLike" />
+          <EntitySet Name="FBPostComments" EntityType="FaceBookDataCollectionModel.FBPostComment" />
+          <EntitySet Name="FBUsers" EntityType="FaceBookDataCollectionModel.FBUser" />
+          <EntitySet Name="FBDirectMessages" EntityType="FaceBookDataCollectionModel.FBDirectMessage" />
+          <EntitySet Name="FBDirectMessage_PosNeg" EntityType="FaceBookDataCollectionModel.FBDirectMessage_PosNeg" />
+          <EntitySet Name="FBPostComments_PosNeg" EntityType="FaceBookDataCollectionModel.FBPostComments_PosNeg" />
+          <EntitySet Name="FBPosts_PosNeg" EntityType="FaceBookDataCollectionModel.FBPosts_PosNeg" />
+        </EntityContainer>
+        <EntityType Name="FBPost">
+          <Key>
+            <PropertyRef Name="Post_Id" />
+          </Key>
+          <Property Type="Int64" Name="Post_Id" Nullable="false" />
+          <Property Type="String" Name="User_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="User_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Category" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Picture" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Link" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="DateTime" Name="Updated_Time" Precision="3" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status_Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Shares" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="Int64" Name="Comments" />
+          <Property Type="String" Name="PostByOther_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostByOther_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Caption" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Caption_Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cap_Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FBPostLike">
+          <Key>
+            <PropertyRef Name="Int" />
+          </Key>
+          <Property Type="Int64" Name="Int" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="From_User_ID" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="From_User_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Post_Id" />
+          <Property Type="String" Name="Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FullName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Link" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="User_Updated_Time" Precision="3" />
+        </EntityType>
+        <EntityType Name="FBPostComment">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Type="Int64" Name="Comment_Id" Nullable="false" />
+          <Property Type="String" Name="Writer_ID" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Writer_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Post_Id" />
+          <Property Type="String" Name="Recipient_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Message_Tags_Count" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="Int64" Name="Like_Count" />
+          <Property Type="Boolean" Name="User_Likes" />
+        </EntityType>
+        <EntityType Name="FBUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="About" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Can_Post" />
+          <Property Type="String" Name="Category" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Check_Ins" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Founded" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Has_Added_App" />
+          <Property Type="Boolean" Name="Is_Community_Page" />
+          <Property Type="Boolean" Name="Is_Published" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="String" Name="Link" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Location" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Talking_About_Count" />
+          <Property Type="String" Name="UserName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Website" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Were_Here_Count" />
+        </EntityType>
+        <EntityType Name="FBDirectMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Sender_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sender_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient1_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient1_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient2_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient2_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Application" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="DateTime" Name="Updated_Time" Precision="3" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="Int64" Name="Comments" />
+        </EntityType>
+        <EntityType Name="FBDirectMessage_PosNeg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Sender_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sender_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient1_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient1_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient2_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient2_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Application" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="DateTime" Name="Updated_Time" Precision="3" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="Int64" Name="Comments" />
+          <Property Type="Int64" Name="NegWords" />
+          <Property Type="Int64" Name="PosWords" />
+          <Property Type="Int64" Name="Length_of_Message" />
+        </EntityType>
+        <EntityType Name="FBPostComments_PosNeg">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Type="Int64" Name="Comment_Id" Nullable="false" />
+          <Property Type="String" Name="Writer_ID" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Writer_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Post_Id" />
+          <Property Type="String" Name="Recipient_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Message_Tags_Count" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="Int64" Name="Like_Count" />
+          <Property Type="Boolean" Name="User_Likes" />
+          <Property Type="Int64" Name="NegWords" />
+          <Property Type="Int64" Name="PosWords" />
+          <Property Type="Int64" Name="Length_of_Message" />
+        </EntityType>
+        <EntityType Name="FBPosts_PosNeg">
+          <Key>
+            <PropertyRef Name="Post_Id" />
+          </Key>
+          <Property Type="Int64" Name="Post_Id" Nullable="false" />
+          <Property Type="String" Name="User_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="User_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Category" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Picture" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Link" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created_Time" Precision="3" />
+          <Property Type="DateTime" Name="Updated_Time" Precision="3" />
+          <Property Type="String" Name="Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status_Type" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Shares" />
+          <Property Type="Int64" Name="Likes" />
+          <Property Type="Int64" Name="Comments" />
+          <Property Type="String" Name="PostByOther_Id" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostByOther_Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Caption" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Caption_Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cap_Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="NegWords" />
+          <Property Type="Int64" Name="PosWords" />
+          <Property Type="Int64" Name="Length_of_Message" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FaceBookDataCollectionModelStoreContainer" CdmEntityContainer="FaceBookDataCollectionEntities" >
+          <EntitySetMapping Name="FBPosts">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBPost">
+              <MappingFragment StoreEntitySet="FBPosts">
+                <ScalarProperty Name="Cap_Description" ColumnName="Cap_Description" />
+                <ScalarProperty Name="Caption_Title" ColumnName="Caption_Title" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="PostByOther_Name" ColumnName="PostByOther_Name" />
+                <ScalarProperty Name="PostByOther_Id" ColumnName="PostByOther_Id" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Updated_Time" ColumnName="Updated_Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBPostLikes">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBPostLike">
+              <MappingFragment StoreEntitySet="FBPostLikes">
+                <ScalarProperty Name="User_Updated_Time" ColumnName="User_Updated_Time" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+                <ScalarProperty Name="From_User_Name" ColumnName="From_User_Name" />
+                <ScalarProperty Name="From_User_ID" ColumnName="From_User_ID" />
+                <ScalarProperty Name="Int" ColumnName="Int" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBPostComments">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBPostComment">
+              <MappingFragment StoreEntitySet="FBPostComments">
+                <ScalarProperty Name="User_Likes" ColumnName="User_Likes" />
+                <ScalarProperty Name="Like_Count" ColumnName="Like_Count" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Message_Tags_Count" ColumnName="Message_Tags_Count" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Recipient_Name" ColumnName="Recipient_Name" />
+                <ScalarProperty Name="Recipient_Id" ColumnName="Recipient_Id" />
+                <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+                <ScalarProperty Name="Writer_Name" ColumnName="Writer_Name" />
+                <ScalarProperty Name="Writer_ID" ColumnName="Writer_ID" />
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBUsers">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBUser">
+              <MappingFragment StoreEntitySet="FBUsers">
+                <ScalarProperty Name="Were_Here_Count" ColumnName="Were_Here_Count" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Talking_About_Count" ColumnName="Talking_About_Count" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Is_Published" ColumnName="Is_Published" />
+                <ScalarProperty Name="Is_Community_Page" ColumnName="Is_Community_Page" />
+                <ScalarProperty Name="Has_Added_App" ColumnName="Has_Added_App" />
+                <ScalarProperty Name="Founded" ColumnName="Founded" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Check_Ins" ColumnName="Check_Ins" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Can_Post" ColumnName="Can_Post" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBDirectMessages">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBDirectMessage">
+              <MappingFragment StoreEntitySet="FBDirectMessage">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Updated_Time" ColumnName="Updated_Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Application" ColumnName="Application" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Recipient2_Name" ColumnName="Recipient2_Name" />
+                <ScalarProperty Name="Recipient2_Id" ColumnName="Recipient2_Id" />
+                <ScalarProperty Name="Recipient1_Name" ColumnName="Recipient1_Name" />
+                <ScalarProperty Name="Recipient1_Id" ColumnName="Recipient1_Id" />
+                <ScalarProperty Name="Sender_Name" ColumnName="Sender_Name" />
+                <ScalarProperty Name="Sender_Id" ColumnName="Sender_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBDirectMessage_PosNeg">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBDirectMessage_PosNeg">
+              <MappingFragment StoreEntitySet="FBDirectMessage_PosNeg">
+                <ScalarProperty Name="Length_of_Message" ColumnName="Length_of_Message" />
+                <ScalarProperty Name="PosWords" ColumnName="PosWords" />
+                <ScalarProperty Name="NegWords" ColumnName="NegWords" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Updated_Time" ColumnName="Updated_Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Application" ColumnName="Application" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Recipient2_Name" ColumnName="Recipient2_Name" />
+                <ScalarProperty Name="Recipient2_Id" ColumnName="Recipient2_Id" />
+                <ScalarProperty Name="Recipient1_Name" ColumnName="Recipient1_Name" />
+                <ScalarProperty Name="Recipient1_Id" ColumnName="Recipient1_Id" />
+                <ScalarProperty Name="Sender_Name" ColumnName="Sender_Name" />
+                <ScalarProperty Name="Sender_Id" ColumnName="Sender_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBPostComments_PosNeg">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBPostComments_PosNeg">
+              <MappingFragment StoreEntitySet="FBPostComments_PosNeg">
+                <ScalarProperty Name="Length_of_Message" ColumnName="Length_of_Message" />
+                <ScalarProperty Name="PosWords" ColumnName="PosWords" />
+                <ScalarProperty Name="NegWords" ColumnName="NegWords" />
+                <ScalarProperty Name="User_Likes" ColumnName="User_Likes" />
+                <ScalarProperty Name="Like_Count" ColumnName="Like_Count" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Message_Tags_Count" ColumnName="Message_Tags_Count" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Recipient_Name" ColumnName="Recipient_Name" />
+                <ScalarProperty Name="Recipient_Id" ColumnName="Recipient_Id" />
+                <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+                <ScalarProperty Name="Writer_Name" ColumnName="Writer_Name" />
+                <ScalarProperty Name="Writer_ID" ColumnName="Writer_ID" />
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FBPosts_PosNeg">
+            <EntityTypeMapping TypeName="FaceBookDataCollectionModel.FBPosts_PosNeg">
+              <MappingFragment StoreEntitySet="FBPosts_PosNeg">
+                <ScalarProperty Name="Length_of_Message" ColumnName="Length_of_Message" />
+                <ScalarProperty Name="PosWords" ColumnName="PosWords" />
+                <ScalarProperty Name="NegWords" ColumnName="NegWords" />
+                <ScalarProperty Name="Cap_Description" ColumnName="Cap_Description" />
+                <ScalarProperty Name="Caption_Title" ColumnName="Caption_Title" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="PostByOther_Name" ColumnName="PostByOther_Name" />
+                <ScalarProperty Name="PostByOther_Id" ColumnName="PostByOther_Id" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Updated_Time" ColumnName="Updated_Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created_Time" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
