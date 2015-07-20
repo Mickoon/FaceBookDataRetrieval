@@ -16,8 +16,8 @@ namespace FBDataRetrieval
 {
     public partial class Form1 : Form
     {
-        private string userAccountName = "accountname";
-        private string access_token = "";
+        private string userAccountName = "ACCOUNT_NAME";
+        private string access_token = "ACCESS_TOKEN";
 
         public Form1()
         {
